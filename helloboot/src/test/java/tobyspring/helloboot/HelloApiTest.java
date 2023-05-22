@@ -39,4 +39,15 @@ public class HelloApiTest {
         //body hello Spring
         assertThat(res.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    void 메세제_보내기() {
+        TestRestTemplate rest = new TestRestTemplate();
+        ResponseEntity<String> res =
+                rest.getForEntity("http://localhost:8080/send-notify?sendType=", String.class, "SMS");
+
+        //status code 200
+        //header(content-type) text/plain
+        //body hello Spring
+        assertThat(res.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
